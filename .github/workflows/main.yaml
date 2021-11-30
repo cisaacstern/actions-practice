@@ -15,5 +15,5 @@ jobs:
       - name: Echo matrix value
         run: echo ${{ matrix.bool }}
       - name: Maybe do something
-        if: matrix.use-upstream-dev == 'true'
+        if: matrix.bool == 'true'
         run: echo "${{ matrix.bool }} is true"
