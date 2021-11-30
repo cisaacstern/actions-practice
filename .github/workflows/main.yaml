@@ -1,0 +1,19 @@
+name: Practice
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  prepare-env:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        bool: ['true', 'false']
+    steps:
+      - name: Echo matrix value
+        run: echo ${{ matrix.bool }}
+      - name: Maybe do something
+        if: matrix.bool == 'true'
+        run: echo "${{ matrix.bool }} is true"
