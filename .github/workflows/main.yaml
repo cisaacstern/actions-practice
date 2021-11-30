@@ -2,9 +2,7 @@ name: Practice
 
 on:
   push:
-    branches: "*"
   pull_request:
-    branches: main
 
 jobs:
   prepare-env:
@@ -15,7 +13,7 @@ jobs:
         bool: ['true', 'false']
     steps:
       - name: Echo matrix value
-
+        run: echo ${{ matrix.bool }}
       - name: Maybe do something
         if: matrix.use-upstream-dev == 'true'
-        run: echo ${{ matrix.bool }}
+        run: echo "${{ matrix.bool }} is true"
