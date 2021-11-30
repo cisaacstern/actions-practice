@@ -1,0 +1,21 @@
+name: Practice
+
+on:
+  push:
+    branches: "*"
+  pull_request:
+    branches: main
+
+jobs:
+  prepare-env:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        bool: ['true', 'false']
+    steps:
+      - name: Echo matrix value
+
+      - name: Maybe do something
+        if: matrix.use-upstream-dev == 'true'
+        run: echo ${{ matrix.bool }}
